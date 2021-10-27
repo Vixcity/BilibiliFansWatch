@@ -8,6 +8,8 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js')
     }
   })
+  //  先运行yarn dev
+  //  在运行yarn start
   win.loadURL(' http://localhost:3000/')
 }
 app.whenReady().then(() => {

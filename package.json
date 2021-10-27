@@ -5,12 +5,18 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
+    "start": "electron .",
     "build": "vite build",
     "preserve": "vite build",
     "serve": "vite preview --port 5050",
-    "start": "electron ."
+    "release": "node scripts/release.js",
+    "releaseDry": "node scripts/release.js --dry"
   },
   "dependencies": {
+    "chalk": "^4.1.2",
+    "enquirer": "^2.3.6",
+    "execa": "^5.1.1",
+    "minimist": "^1.2.5",
     "vue": "^3.2.14",
     "vue-router": "^4.0.11",
     "vuex": "^4.0.2"
