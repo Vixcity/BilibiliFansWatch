@@ -3,22 +3,23 @@
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="You did it! Yes I Do" />
 
-      <div id="nav">
+      <!-- <div id="nav">
         <router-link to="/">Home</router-link>
         <router-link to="/about">About</router-link>
-      </div>
+      </div> -->
     </div>
   </header>
 
-  <router-view />
+  <!-- <router-view /> -->
 </template>
 
 <script setup>
 import HelloWorld from '@/components/HelloWorld.vue'
 const message = window.$electron.title
-console.log(message)
+// window.$electron.webFrame.setZoomLevelLimits(1,1)
+console.log(window.$electron)
 </script>
 
 <style>

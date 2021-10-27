@@ -2,14 +2,23 @@ const { app, BrowserWindow } = require('electron')
 const path = require('path')
 function createWindow () {
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 450,
+    height: 300,
+    // 透明背景
+    transparent: true,
+    
+    // 隐藏顶部菜单
+    frame:false,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      // 是否显示控制台
+      // devTools: false,
+      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration:true
     }
   })
   //  先运行yarn dev
   //  在运行yarn start
+  //  加载localhost:3000
   win.loadURL(' http://localhost:3000/')
 }
 app.whenReady().then(() => {

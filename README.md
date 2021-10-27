@@ -1,29 +1,19 @@
-# bfw
+# BiliBiliFansWatch
 
-This template should help get you started developing with Vue 3 in Vite.
+## 简介
 
-## Recommended IDE Setup
+这是一个 vue3 + vue-router + vite + electron 的桌面项目
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur).
+## 安装指南
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+``` bash
+yarn
 ```
 
-### Compile and Hot-Reload for Development
+## 运行指南
 
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
+```bash
+yarn dev
+同时新开一个控制台输入
+yarn start
 ```
