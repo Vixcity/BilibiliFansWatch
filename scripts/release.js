@@ -20,7 +20,7 @@ Date.prototype.Format = function(formatStr)
     str=str.replace(/yyyy|YYYY/,this.getFullYear());   
     str=str.replace(/yy|YY/,(this.getYear() % 100)>9?(this.getYear() % 100).toString():'0' + (this.getYear() % 100));   
   
-    str=str.replace(/MM/,this.getMonth()+1>9?(this.getMonth()+1).toString():'0' + this.getMonth()+1);   
+    str=str.replace(/MM/,this.getMonth()>9?this.getMonth().toString():'0' + this.getMonth());   
     str=str.replace(/M/g,this.getMonth());   
   
     str=str.replace(/w|W/g,Week[this.getDay()]);   
@@ -42,7 +42,7 @@ Date.prototype.Format = function(formatStr)
 async function main() {
   let targetVersion = args._[0]
   let whereCK
-  let now = new Date().Format('YYYY-MM-DD hh:mm:ss 星期W')
+  let now = new Date().Format('YYYY-MM-DD hh:mm:ss')
 
   if (!targetVersion) {
     const { release } = await prompt ({
@@ -73,12 +73,12 @@ async function main() {
     })
   }
 
-  // commit 
+  // 产生 changelog
   const { stdout } = await run('git', ['diff'], { stdio: 'pipe' })
   if (stdout) {
     step('\n提交更改的内容...')
     await runIfNotDry('git', ['add', '-A'])
-    await runIfNotDry('git', ['commit', '-m', `${targetVersion}`])
+    await runIfNotDry('git', ['commit', '-m', `更新内容：${targetVersion}`])
   } else {
     console.log('No changes to commit.')
   }
@@ -87,17 +87,17 @@ async function main() {
   step('\n推送到对应的仓库...')
   switch (whereCK.whereCK) {
     case '全部':
-      await runIfNotDry('git', ['push', 'gitee', `main`])
+      await runIfNotDry('git', ['push', 'gitee', `master`])
       step('\n')
-      await runIfNotDry('git', ['push', 'github', `main`])
+      await runIfNotDry('git', ['push', 'github', `master`])
       step('\n')
       break;
     case 'gitee':
-      await runIfNotDry('git', ['push', 'gitee', `main`])
+      await runIfNotDry('git', ['push', 'gitee', `master`])
       step('\n')
       break;
     case 'github':
-      await runIfNotDry('git', ['push', 'github', `main`])
+      await runIfNotDry('git', ['push', 'github', `master`])
       step('\n')
       break;
     default:
@@ -106,8 +106,6 @@ async function main() {
 
   if (isDryRun) {
     console.log(`\nDry run finished - run git diff to see package changes.`)
-  } else {
-    step('更新完成')
   }
 }
 

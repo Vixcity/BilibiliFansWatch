@@ -1,39 +1,3 @@
-<script setup>
-defineProps({
-  msg: {
-    type: String,
-    required: true
-  },
-})
-</script>
-
-<script>
-// import { ipcRenderer } from 'electron'
-// console.log(ipcRenderer)
-
-export default {
-  name: "helloWorld",
-  data: function () {
-    return {
-      isLock: false,
-      isBig:true,
-      isTop:false,
-      changeLock: () => {
-        this.isLock = !this.isLock
-      },
-      changeBig: () => {
-        this.isBig = !this.isBig
-      },
-      changeToTop: () => {
-        this.isTop = !this.isTop
-        // electronWin.setAlwaysOnTop(true)
-        console.log(electronWin)
-      }
-    }
-  }
-}
-</script>
-
 <template>
   <div class="greetings">
     <div class="flex pdlr1 pdt05">
@@ -53,10 +17,40 @@ export default {
       <div class="pdlr05">
         <i style="cursor: pointer;" @click="changeToTop" :class="{blue:isTop}" class="iconfont icon-zhiding"></i>
       </div>
+      <div class="pdlr05">
+        <i style="cursor: pointer;" @click="close" class="iconfont icon-guanbi"></i>
+      </div>
     </div>
     <h1 class="green">{{ msg }}</h1>
   </div>
 </template>
+
+<script>
+import { ipcRenderer } from "electron";
+export default {
+  name: "helloWorld",
+  data: function () {
+    return {
+      isLock: false,
+      isBig:true,
+      isTop:false,
+      changeLock: () => {
+        this.isLock = !this.isLock
+      },
+      changeBig: () => {
+        this.isBig = !this.isBig
+      },
+      changeToTop: () => {
+        this.isTop = !this.isTop
+        ipcRenderer.invoke("isTop",this.isTop);
+      },
+      close: () => {
+        ipcRenderer.invoke('close')
+      }
+    }
+  }
+}
+</script>
 
 <style scoped>
 .flex{

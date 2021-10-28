@@ -1,9 +1,21 @@
-<script setup lang="ts">
-import Welcome from '@/components/Welcome.vue'
-</script>
-
 <template>
-  <main>
-    <Welcome />
-  </main>
+  <div class="home">
+    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <img alt="Vue logo" src="../assets/logo.png" />
+  </div>
 </template>
+
+<script>
+// @ is an alias to /src
+import HelloWorld from "@/components/HelloWorld.vue";
+
+export default {
+  name: "Home",
+  components: {
+    HelloWorld,
+  },
+  methods: {
+
+  },
+};
+</script>
