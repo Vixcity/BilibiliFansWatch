@@ -8,6 +8,9 @@ defineProps({
 </script>
 
 <script>
+// import { ipcRenderer } from 'electron'
+// console.log(ipcRenderer)
+
 export default {
   name: "helloWorld",
   data: function () {

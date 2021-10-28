@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
+
 function createWindow() {
   const win = new BrowserWindow({
     width: 500,
@@ -19,6 +20,7 @@ function createWindow() {
       nodeIntegration: true,
     },
   });
+
   //  先运行yarn dev
   //  在运行yarn start
   //  加载localhost:3000
