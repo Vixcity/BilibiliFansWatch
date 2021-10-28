@@ -1020,6 +1020,11 @@ vite@^2.6.3:
   optionalDependencies:
     fsevents "~2.3.2"
 
+vue-cli-plugin-electron@~0.0.0:
+  version "0.0.0"
+  resolved "https://registry.nlark.com/vue-cli-plugin-electron/download/vue-cli-plugin-electron-0.0.0.tgz#3d61fc68f09090850fac5e7927682a9780ab26c7"
+  integrity sha1-PWH8aPCQkIUPrF55J2gql4CrJsc=
+
 vue-router@^4.0.11:
   version "4.0.12"
   resolved "https://registry.npmmirror.com/vue-router/download/vue-router-4.0.12.tgz?cache=0&sync_timestamp=1635262041312&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fvue-router%2Fdownload%2Fvue-router-4.0.12.tgz#8dc792cddf5bb1abcc3908f9064136de7e13c460"
