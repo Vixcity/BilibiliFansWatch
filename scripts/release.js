@@ -87,17 +87,17 @@ async function main() {
   step('\n推送到对应的仓库...')
   switch (whereCK.whereCK) {
     case '全部':
-      await runIfNotDry('git', ['push', 'gitee', `master`])
+      await runIfNotDry('git', ['push', 'gitee', `main`])
       step('\n')
-      await runIfNotDry('git', ['push', 'github', `master`])
+      await runIfNotDry('git', ['push', 'github', `main`])
       step('\n')
       break;
     case 'gitee':
-      await runIfNotDry('git', ['push', 'gitee', `master`])
+      await runIfNotDry('git', ['push', 'gitee', `main`])
       step('\n')
       break;
     case 'github':
-      await runIfNotDry('git', ['push', 'github', `master`])
+      await runIfNotDry('git', ['push', 'github', `main`])
       step('\n')
       break;
     default:
