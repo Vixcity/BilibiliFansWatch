@@ -13,11 +13,13 @@
   },
   "main": "background.js",
   "dependencies": {
+    "axios": "^0.24.0",
     "chalk": "^4.1.2",
     "core-js": "^3.6.5",
     "enquirer": "^2.3.6",
     "execa": "^5.1.1",
     "minimist": "^1.2.5",
+    "moment": "^2.29.1",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"

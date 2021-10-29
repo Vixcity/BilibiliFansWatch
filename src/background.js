@@ -14,8 +14,8 @@ protocol.registerSchemesAsPrivileged([
 async function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
-    width: 500,
-    height: 300,
+    width: 900,
+    height: 800,
     // 透明背景
     transparent: true,
     // 隐藏顶部菜单
@@ -23,7 +23,7 @@ async function createWindow() {
     //可否缩放
     resizable: false,
     //可否移动
-    // movable: false,
+    movable: true,
     webPreferences: {
       // 是否显示控制台
       // devTools: false,
@@ -35,7 +35,8 @@ async function createWindow() {
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
     await win.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
-    if (!process.env.IS_TEST) win.webContents.openDevTools();
+    // 自动加载控制台↓
+    // if (!process.env.IS_TEST) win.webContents.openDevTools();
   } else {
     createProtocol("app");
     // Load the index.html when not in development
