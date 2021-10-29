@@ -26,8 +26,8 @@
         <i style="cursor: pointer;" @click="close" class="iconfont icon-guanbi"></i>
       </div>
     </div>
-    <h1 class="green">宝贝呀，{{ userInfoMsg.city }}今天的天气是{{nowWeather.text}}呀,今天晚上可以看到{{weatherInfo[0]?.}}哟</h1>
-    <h1 class="green">今天最高温度是{{weatherInfo[0]}}度</h1>
+    <h1 class="green">宝贝呀，{{ userInfoMsg.city }}今天的天气是{{nowWeather.text}}呀<span v-if='weatherInfo[0]'>,今天晚上可以看到{{weatherInfo[0].moonPhase}}哟</span></h1>
+    <h1 class="green"><span v-if='weatherInfo[0]'>今天最高温度是{{weatherInfo[0].tempMax}}度</span></h1>
   </div>
 </template>
 
@@ -38,7 +38,7 @@ import api from '../api/api'
 
 export default {
   name: "helloWorld",
-  mounted() {
+  created() {
     this.api = api
     this.api.getIP().then(r => {
       //获取花括号里面的内容
