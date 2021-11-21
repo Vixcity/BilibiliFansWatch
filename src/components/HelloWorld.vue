@@ -26,8 +26,13 @@
         <i style="cursor: pointer;" @click="close" class="iconfont icon-guanbi"></i>
       </div>
     </div>
-    <h1 class="green">宝贝呀，{{ userInfoMsg.city }}今天的天气是{{nowWeather.text}}呀<span v-if='weatherInfo[0]'>,今天晚上可以看到{{weatherInfo[0].moonPhase}}哟</span></h1>
-    <h1 class="green"><span v-if='weatherInfo[0]'>今天最高温度是{{weatherInfo[0].tempMax}}度</span></h1>
+    <span class="green">宝贝呀，{{ userInfoMsg.city }}今天的天气是{{nowWeather.text}}呀<span v-if='weatherInfo[0]'>
+      <br />晚上可以看到{{weatherInfo[0].moonPhase}}哟</span></span><br/>
+    <span class="green"><span v-if='weatherInfo[0]'>今天最高温度是{{weatherInfo[0].tempMax}}度</span></span>
+    <span>{{weatherComfort[7].text.replace('您','你')}}</span><br/>
+    <span>{{weatherComfort[8].text.replace('您','你')}}</span><br/>
+    <span>{{weatherComfort[15].text.replace('您','你')}}</span>
+<!--    01066411166-->
   </div>
 </template>
 
@@ -88,7 +93,7 @@ export default {
       isTop: false,
       weatherInfo: [],
       nowWeather: {},
-      weatherComfort: {},
+      weatherComfort: [],
       userInfoMsg: {},
       changeLock: () => {
         this.isLock = !this.isLock

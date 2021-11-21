@@ -14,8 +14,8 @@ protocol.registerSchemesAsPrivileged([
 async function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
-    width: 900,
-    height: 800,
+    width: 500,
+    height: 300,
     // 透明背景
     transparent: true,
     // 隐藏顶部菜单
