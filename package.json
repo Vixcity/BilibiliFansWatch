@@ -2,6 +2,8 @@
   "name": "vixcity",
   "version": "0.1.0",
   "private": true,
+  "author": "vixcity",
+  "description": "给宝子的一个爱心小程序",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
