@@ -1,9 +1,7 @@
 {
-  "name": "vixcity",
+  "name": "electron",
   "version": "0.1.0",
   "private": true,
-  "author": "Vixcity",
-  "description": "给宝子的爱心小程序",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -15,29 +13,26 @@
   },
   "main": "background.js",
   "dependencies": {
-    "axios": "^0.24.0",
     "chalk": "^4.1.2",
     "core-js": "^3.6.5",
     "enquirer": "^2.3.6",
-    "execa": "^6.0.0",
+    "execa": "^5.1.1",
     "minimist": "^1.2.5",
-    "moment": "^2.29.1",
-    "vue": "^2.6.11",
-    "vue-router": "^3.2.0",
-    "vuex": "^3.4.0"
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "electron": "^11.0.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "electron": "^13.0.0",
     "electron-devtools-installer": "^3.1.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
-    "vue-cli-plugin-electron-builder": "~2.1.1",
-    "vue-template-compiler": "^2.6.11",
-    "webpack": "^5.64.2",
+    "vue-cli-plugin-electron-builder": "~2.1.1"
   },
   "browserslist": [
     "> 1%",
