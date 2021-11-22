@@ -1,6 +1,6 @@
 "use strict";
 
-import { app, protocol, BrowserWindow, ipcMain } from "electron";
+import { app, protocol, BrowserWindow, ipcMain, remote } from "electron";
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib";
 import installExtension, { VUEJS3_DEVTOOLS } from "electron-devtools-installer";
 const isDevelopment = process.env.NODE_ENV !== "production";
@@ -42,7 +42,7 @@ async function createWindow() {
     // Load the index.html when not in development
     win.loadURL("app://./index.html");
   }
-  electronWin=win
+  electronWin = win
 }
 
 // Quit when all windows are closed.
@@ -90,10 +90,16 @@ if (isDevelopment) {
   }
 }
 
-ipcMain.handle('isTop', (a,params) => {
+ipcMain.handle('isTop', (a, params) => {
   electronWin.setAlwaysOnTop(params)
 })
 
 ipcMain.handle('close', () => {
   electronWin.close()
+})
+
+ipcMain.handle('isBig', (a,params) => {
+  electronWin.setResizable(true)
+  params?electronWin.setSize(500,300):electronWin.setSize(500,37);
+  electronWin.setResizable(false)
 })
